@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: my-laravel-app
+    env: php
+    buildCommand: "composer install --no-dev --optimize-autoloader"
+    startCommand: "php-fpm -D && nginx -g 'daemon off;'"
+    autoDeploy: true
+    instances: 1
+    plan: free
+    envVars:
+      - key: APP_KEY
+        value: your-app-key
+      - key: APP_ENV
+        value: production
